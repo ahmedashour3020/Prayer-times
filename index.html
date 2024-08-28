@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="احصل على مواقيت الصلاة اليومية في المدن المختلفة في السعودية بدقة عالية مع تحديثات فورية.">
+    <meta name="keywords" content="مواقيت الصلاة, السعودية, أوقات الصلاة في السعودية, صلاة الفجر, صلاة الظهر, صلاة العصر, صلاة المغرب, صلاة العشاء">
+    <title>مواقيت الصلاة في السعودية</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            z-index: 1000;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        header h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.5rem;
+            color: #343a40;
+            margin: 0;
+        }
+        .hero-section {
+            background: url('images/sa7.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        .search-section {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+        }
+        .search-input {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            border-radius: 0.75rem;
+            border: none;
+            font-size: 1.1rem;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .city-card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            text-align: center;
+            overflow: hidden;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 4px;
+        }
+        .city-card img {
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+        .city-card h3 {
+            padding: 20px;
+            font-size: 1.5rem;
+            color: #007bff;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        .city-card a {
+            display: block;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0 0 1rem 1rem;
+            transition: background-color 0.3s;
+        }
+        .city-card a:hover {
+            background-color: #0056b3;
+        }
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .city-card img:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-top: 2px solid #ddd;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        #loadMoreButton {
+            text-align: center;
+            margin: 20px 0;
+        }
+        #loadMoreButton button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #loadMoreButton button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <header class="text-center">
+        <h1>مواقيت الصلاة في السعودية</h1>
+    </header>
+    
+    <section class="hero-section">
+        <div class="container">
+            <h2>مواقيت الصلاة في مدن المملكة العربية السعودية</h2>
+            <p>احصل على أحدث المعلومات حول أوقات الصلاة والأذان في مختلف المدن بكل دقة وسهولة.</p>
+        </div>
+    </section>
+    
+    <!-- قسم البحث -->
+    <section class="search-section">
+        <div class="container">
+            <input type="text" id="citySearch" class="search-input" placeholder="ابحث عن مدينة..." oninput="searchCity()">
+        </div>
+    </section>
+
+    <section class="container my-5" id="cityCardsSection">
+        <div class="row" id="cityCardsContainer">
+            <!-- بطاقات المدينة سيتم تحميلها هنا -->
+        </div>
+        <div id="loadMoreButton" class="text-center">
+            <button onclick="loadMoreCities()">تحميل المزيد</button>
+        </div>
+    </section>
+
+	<footer class="text-center my-4">
+        <p>&copy; 2024 موقع مواقيت الصلاة. جميع الحقوق محفوظة.</p>
+        <a href="./">الرئيسية</a> | 
+        <a href="./blog.html">المدونة</a> | 
+        <a href="./privacy-policy.html">الخصوصية</a> | 
+        <a href="./terms-of-use.html">الاستخدام</a>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+const allCities = [
+    { name: "الرياض", image: "images/cities/riyadh.jpg", link: "prayer-times-riyadh.html" },
+    { name: "جدة", image: "images/cities/jeddah.jpg", link: "prayer-times-jeddah.html" },
+    { name: "الدمام", image: "images/cities/dammam.jpg", link: "prayer-times-dammam.html" },
+    { name: "مكة المكرمة", image: "images/cities/mecca.jpg", link: "prayer-times-mecca.html" },
+    { name: "المدينة المنورة", image: "images/cities/medina.jpg", link: "prayer-times-al-madina.html" },
+    { name: "تبوك", image: "images/cities/tabuk.jpg", link: "prayer-times-tabuk.html" },
+    { name: "الطائف", image: "images/cities/taif.jpg", link: "prayer-times-taif.html" },
+    { name: "بريدة", image: "images/cities/buraidah.jpg", link: "prayer-times-buraydah.html" },
+    { name: "ينبع", image: "images/cities/yanbu.jpg", link: "prayer-times-yanbu.html" },
+    { name: "الخبر", image: "images/cities/khobar.jpg", link: "prayer-times-khobar.html" },
+    { name: "حائل", image: "images/cities/hail.jpg", link: "prayer-times-ha'il.html" },
+    { name: "أبها", image: "images/cities/abha.jpg", link: "prayer-times-abha.html" },
+    { name: "الخرج", image: "images/cities/al-kharj.jpg", link: "prayer-times-kharj.html" },
+    { name: "جازان", image: "images/cities/jazan.jpg", link: "prayer-times-jazan.html" },
+    { name: "حفر الباطن", image: "images/cities/hafr_al_batin.jpg", link: "prayer-times-hafar-al-batin.html" },
+    { name: "عنيزة", image: "images/cities/oonayzah.jpg", link: "prayer-times-unaizah.html" },
+    { name: "الجبيل", image: "images/cities/jubail.jpg", link: "prayer-times-jubail.html" },
+    { name: "خميس مشيط", image: "images/cities/khamis.jpg", link: "prayer-times-khamis-mushayt.html" },
+    { name: "عرعر", image: "images/cities/afeef.jpg", link: "prayer-times-afeef.html" },
+    { name: "نجران", image: "images/cities/najran.jpg", link: "prayer-times-najran.html" },
+    { name: "القريات", image: "images/cities/al-qurayyat.jpg", link: "prayer-times-al-qurayyat.html" },
+    { name: "الزلفي", image: "images/cities/alzulf.jpg", link: "prayer-times-uzlu.html" },
+    { name: "القطيف", image: "images/cities/qatif.jpg", link: "prayer-times-qatif.html" },
+    { name: "العلا", image: "images/cities/al-ula.jpg", link: "prayer-times-al-ula.html" },
+    { name: "الدوادمي", image: "images/cities/al-dawadmi.jpg", link: "prayer-times-al-dawadimi.html" },
+    { name: "أملج", image: "images/cities/debab.jpg", link: "prayer-times-umluj.html" },
+    { name: "محايل", image: "images/cities/muhayil.jpg", link: "prayer-times-muhayil.html" },
+    { name: "شرورة", image: "images/cities/sharurah.jpg", link: "prayer-times-sharurah.html" },
+    { name: "ضباء", image: "images/cities/debab.jpg", link: "prayer-times-duba.html" },
+    { name: "طبرجل", image: "images/cities/tabarjal.jpg", link: "prayer-times-tabarjal.html" },
+    { name: "عفيف", image: "images/cities/afeef.jpg", link: "prayer-times-afeef.html" },
+    { name: "رفحاء", image: "images/cities/rafha.jpg", link: "prayer-times-rafaah.html" },
+    { name: "دومة الجندل", image: "images/cities/duma.jpg", link: "prayer-times-dumat-al-jandal.html" },
+    { name: "الظهران", image: "images/cities/dhahran.jpg", link: "prayer-times-dhahran.html" },
+    { name: "بيشة", image: "images/cities/bisha.jpg", link: "prayer-times-bisha.html" },
+	 // المدن الجديدة المضافة:
+    { name: "أبيار علي", image: "images/cities/abyar_ali.jpg", link: "prayer-times-abyar-ali.html" },
+    { name: "الأفلاج", image: "images/cities/alaflaj.jpg", link: "prayer-times-alaflaj.html" },
+    { name: "الإحساء", image: "images/cities/alhasa.jpg", link: "prayer-times-alhasa.html" },
+    { name: "القيصومة", image: "images/cities/alqaysumah.jpg", link: "prayer-times-alqaysumah.html" },
+    { name: "الليث", image: "images/cities/layth.jpg", link: "prayer-times-layth.html" },
+    { name: "الهفوف", image: "images/cities/al-hofuf.jpg", link: "prayer-times-al-hofuf.html" },
+    { name: "المبرز", image: "images/cities/al-mubarraz.jpg", link: "prayer-times-al-mubarraz.html" },
+    { name: "سكاكا", image: "images/cities/sakaka.jpg", link: "prayer-times-sakaka.html" },
+    { name: "الباحة", image: "images/cities/al-bahah.jpg", link: "prayer-times-al-bahah.html" },
+    { name: "سيهات", image: "images/cities/sihaat.jpg", link: "prayer-times-sihaat.html" },
+    { name: "المذنب", image: "images/cities/al-madhnab.jpg", link: "prayer-times-al-madhnab.html" },
+    { name: "الخفجي", image: "images/cities/khafji.jpg", link: "prayer-times-khafji.html" },
+    { name: "أبو حدرية", image: "images/cities/abu_hadriyah.jpg", link: "prayer-times-abu-hadriyah.html" },
+    { name: "أبو عريش", image: "images/cities/abu_arish.jpg", link: "prayer-times-abu-arish.html" },
+    { name: "أعيوج", image: "images/cities/ayyuj.jpg", link: "prayer-times-ayyuj.html" },
+    { name: "أم رجوم", image: "images/cities/um-rujum.jpg", link: "prayer-times-um-rujum.html" },
+    { name: "أم رضمة", image: "images/cities/um-ramah.jpg", link: "prayer-times-um-ramah.html" },
+    { name: "أم زرب", image: "images/cities/um-zarb.jpg", link: "prayer-times-um-zarb.html" },
+    { name: "أم عشر", image: "images/cities/um-ashr.jpg", link: "prayer-times-um-ashr.html" },
+    { name: "أم غور", image: "images/cities/um-ghour.jpg", link: "prayer-times-um-ghour.html" },
+    { name: "إبضة", image: "images/cities/ibdah.jpg", link: "prayer-times-ibdah.html" },
+    { name: "إثرة", image: "images/cities/ithrah.jpg", link: "prayer-times-ithrah.html" },
+    { name: "اباء الصبان", image: "images/cities/aba_al_subban.jpg", link: "prayer-times-aba-al-subban.html" },
+    { name: "ابن شرار", image: "images/cities/ibn_sharar.jpg", link: "prayer-times-ibn-sharar.html" },
+    { name: "ابن شريم", image: "images/cities/ibn_sharim.jpg", link: "prayer-times-ibn-sharim.html" },
+    { name: "ابن عائش", image: "images/cities/ibn_ayesh.jpg", link: "prayer-times-ibn-ayesh.html" },
+    { name: "ابوضباع", image: "images/cities/abu_dabaa.jpg", link: "prayer-times-abu-dabaa.html" },
+    { name: "ابيار الماشي", image: "images/cities/abyar_al_mashi.jpg", link: "prayer-times-abyar-al-mashi.html" },
+    { name: "الأجفر", image: "images/cities/al_ajfar.jpg", link: "prayer-times-al-ajfar.html" },
+    { name: "الأحمر", image: "images/cities/al-ahmar.jpg", link: "prayer-times-al-ahmar.html" },
+    { name: "الأرطاوي", image: "images/cities/al_artawi.jpg", link: "prayer-times-al-artawi.html" },
+    { name: "الأرطاوية", image: "images/cities/al_artawiyah.jpg", link: "prayer-times-al-artawiyah.html" },
+    { name: "الأسامر", image: "images/cities/al_asamir.jpg", link: "prayer-times-al-asamir.html" },
+    { name: "الأملح", image: "images/cities/al_amlah.jpg", link: "prayer-times-al-amlah.html" },
+    { name: "الاثنين", image: "images/cities/al_ithnain.jpg", link: "prayer-times-al-ithnain.html" },
+    { name: "الاكحل", image: "images/cities/al_akhal.jpg", link: "prayer-times-al-akhal.html" },
+    { name: "الرس القصيم", image: "images/cities/al_rass_al_qassim.jpg", link: "prayer-times-al-rass-al-qassim.html" }
+];
+
+
+        
+        let displayedCities = [];
+        const citiesPerPage = 48;
+
+        function renderCities(cities) {
+            const container = document.getElementById('cityCardsContainer');
+            container.innerHTML = '';
+            cities.forEach(city => {
+                const card = document.createElement('div');
+                card.className = 'col-md-4 mb-4';
+                card.innerHTML = `
+                    <div class="city-card">
+                        <img src="${city.image}" alt="${city.name}">
+                        <h3>${city.name}</h3>
+                        <a href="${city.link}">مواقيت الصلاة في ${city.name}</a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function loadMoreCities() {
+            const start = displayedCities.length;
+            const end = Math.min(start + citiesPerPage, allCities.length);
+            displayedCities = displayedCities.concat(allCities.slice(start, end));
+            renderCities(displayedCities);
+
+            if (displayedCities.length >= allCities.length) {
+                document.getElementById('loadMoreButton').style.display = 'none';
+            }
+        }
+
+        function searchCity() {
+            const searchValue = document.getElementById('citySearch').value.toLowerCase();
+            const filteredCities = allCities.filter(city => city.name.toLowerCase().includes(searchValue));
+            renderCities(filteredCities);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadMoreCities();
+        });
+    </script>
+</body>
+</html>

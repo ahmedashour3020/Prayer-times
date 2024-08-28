@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- start 0 -->
+    <meta name="description" content="اذان إثرة يعرض مواقيت الصلاة في إثرة بدقة عالية مع تحديثات فورية. تعرف على أوقات اذان الفجر، الظهر، العصر، المغرب، والعشاء في إثرة على مدار الساعة.">
+    <meta name="keywords" content="مواقيت الصلاة، اذان إثرة, إثرة, أوقات الصلاة في إثرة, اذان الفجر, اذان صلاة الظهر, صلاة العصر, صلاة المغرب, اذان صلاة العشاء, توقيت الصلاة إثرة، مواعيد الصلاة">
+    <title>اذان إثرة</title>
+	<!-- /start 0 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+	<!-- start 1 -->
+    <link rel="canonical" href="https://www.yourwebsite.com/prayer-times-jeddah">
+	<!-- /start 1 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            line-height: 1.6;
+			    direction: rtl; /* نصوص من اليمين لليسار */
+				    justify-content: center;
+
+    align-items: center;
+
+        }
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.5rem;
+            color: #343a40;
+        }
+        header p {
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+        footer {
+            background-color: #ffffff;
+            padding: 10px 0;
+            border-top: 2px solid #ddd;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+        .nav-tabs .nav-link.active {
+            color: #007bff;
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
+        }
+        .tab-content {
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        .table thead th {
+            background-color: #007bff;
+            color: #ffffff;
+            text-align: center;
+        }
+        .table tbody td {
+            text-align: center;
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+        .table {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 800px;
+        }
+        .table-responsive {
+            overflow-x: auto;
+        }
+		
+		.table td:nth-child(2), .table th:nth-child(2) {
+    min-width: 120px; /* عدل القيمة حسب الحاجة */
+}
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-control {
+            border-radius: 0.25rem;
+        }
+        .city-dropdown {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .city-dropdown select {
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            padding: 5px;
+            font-size: 1rem;
+        }
+        .city-dropdown option {
+            padding: 15px;
+        }
+        .city-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .city-option img {
+            max-width: 50px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .city-option:hover {
+            background-color: #f1f1f1;
+        }
+        .icon-col {
+            width: 80px;
+        }
+        .icon-col img {
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: #0089fe 3px solid;
+        }
+        .icon-text {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            gap: 8px; /* Space between icon and text */
+        }
+		
+		
+#date-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+	width: 100%;
+    /* max-width: 500px; */
+    margin: 10px auto;
+}
+.section-background {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+	width: 100%;
+    /* max-width: 500px; */
+    margin: 10px auto;
+}
+
+.date-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date {
+    font-size: 1.3rem;
+    margin: 6px;
+color: #fff;
+    background: #007bff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+
+</head>
+<body dir="rtl">
+
+    <div class="container">
+	
+	<!-- start 2 -->
+        <header class="text-center my-4">
+            <h1>مواقيت الصلاة في إثرة</h1>
+            <p>اذان إثرة يوفر لك أوقات الصلاة الدقيقة في مدينة إثرة مع تحديثات فورية لضمان عدم تفويت أي صلاة.</p>
+        </header>
+	<!-- /start 2 -->
+	
+        <!-- خيارات التوقيت -->
+        <section id="settings" class="text-center">
+            <h2>خيارات التوقيت</h2>
+            <div class="form-group">
+                <label for="source">اختر طريقة تحديد أوقات الصلاة:</label>
+                <select id="source" class="form-control">
+<option value="4">جامعة "أم القرى" في مكة المكرمة</option>
+<option value="2">الجمعية الإسلامية لأمريكا الشمالية</option>
+<option value="5">الهيئة العامة المصرية للمساحة</option>
+<option value="7">طريقة حسابية خاصة بمعهد الجيوفيزياء في جامعة طهران</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- تبويب أوقات الصلاة -->
+        <section id="prayer-times" class="text-center">
+            <div class="tabs">
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="daily-tab" data-toggle="tab" href="#daily" role="tab" aria-controls="daily" aria-selected="true">مواقيت اليوم</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="monthly-tab" data-toggle="tab" href="#monthly" role="tab" aria-controls="monthly" aria-selected="false">مواقيت الشهر</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="daily" role="tabpanel" aria-labelledby="daily-tab">
+					
+					<!-- start 3 -->
+                        <h2 class="my-4">اذان إثرة</h2>
+					<!-- /start 3 -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+										<th></th>
+                                        <th>الصلاة</th>
+                                        <th>الوقت</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+									                                        <td class="icon-col">
+                                            <img src="images/fjr.jpg" alt="فجر">
+                                        </td>
+                                        <td class="icon-col">
+                                            <div class="icon-text">
+                                                <span>اذان الفجر</span>
+                                            </div>
+                                        </td>
+
+                                        <td id="fajr"></td>
+                                    </tr>
+                                    <tr>
+									    <td class="icon-col">
+                                            <img src="images/zohr.jpg" alt="ظهر">
+                                        </td>
+                                        <td class="icon-col">
+                                            <div class="icon-text">
+                                                <span>اذان الظهر</span>
+                                            </div>
+                                        </td>
+                                    
+                                        <td id="dhuhr"></td>
+                                    </tr>
+                                    <tr>
+									      <td class="icon-col">
+                                            <img src="images/asr.jpg" alt="عصر">
+                                        </td>
+                                        <td class="icon-col">
+                                            <div class="icon-text">
+                                                <span>اذان العصر</span>
+                                            </div>
+                                        </td>
+                                  
+                                        <td id="asr"></td>
+                                    </tr>
+                                    <tr>
+									     <td class="icon-col">
+                                            <img src="images/magrip.jpg" alt="مغرب">
+                                        </td>
+                                        <td class="icon-col">
+                                                <span>اذان المغرب</span>
+                                            </div>
+                                        </td>
+                                   
+                                        <td id="maghrib"></td>
+                                    </tr>
+                                    <tr>
+									      <td class="icon-col">
+                                            <img src="images/eshaa.jpg" alt="عشاء">
+                                        </td>
+                                        <td class="icon-col">
+                                            <div class="icon-text">
+                                                <span>اذان العشاء</span>
+                                            </div>
+                                        </td>
+                                  
+                                        <td id="isha"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">
+					
+					<!-- start 4 --> 
+                        <h2 class="my-4">مواقيت الصلاة لهذا الشهر</h2>
+					<!-- /start 4 --> 
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>التاريخ</th>
+                                        <th>الفجر</th>
+                                        <th>الظهر</th>
+                                        <th>العصر</th>
+                                        <th>المغرب</th>
+                                        <th>العشاء</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="monthly-timings">
+                                    <!-- سيتم ملء هذا القسم باستخدام JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		<!-- Section عرض التاريخ اليوم  -->
+    <section id="date-section">
+        <div class="date-container">
+		<h2>التاريخ اليوم</h2>
+		<p>التاريخ الهجري: </p>
+		<div class="date" id="hijri-date"></div>
+		<p>التاريخ الميلادي: </p>
+        <div class="date" id="gregorian-date"></div>
+			
+
+</div>
+     
+    </section>
+
+        <section id="about" class="section-background text-center my-4">
+            <h2>حول مواقيت الصلاة</h2>
+            <p>مواقيت الصلاة هي أوقات مخصصة لأداء الصلوات الخمس في اليوم، وهي جزء أساسي من حياة المسلم. تتغير أوقات الصلاة يوميًا بناءً على موقعك الجغرافي والوقت من السنة.</p>
+        </section>
+
+<!-- قسم اختيار المدينة -->
+<section id="city-selection" class="text-center my-4">
+    <h2>اختر مدينة أخرى</h2>
+    <div class="city-dropdown">
+        <select id="city-select" class="form-control">
+            <option value="" disabled selected>اختر مدينة</option>
+            <option value="riyadh" data-url="prayer-times-riyadh.html">الرياض</option>
+            <option value="jeddah" data-url="prayer-times-jeddah.html">جده</option>
+            <option value="dammam" data-url="prayer-times-dammam.html">الدمام</option>
+            <option value="mecca" data-url="prayer-times-mecca.html">مكة المكرمة</option>
+            <option value="medina" data-url="prayer-times-al-madina.html">المدينة المنورة</option>
+            <option value="tabuk" data-url="prayer-times-tabuk.html">تبوك</option>
+            <option value="taif" data-url="prayer-times-taif.html">الطائف</option>
+            <option value="buraidah" data-url="prayer-times-buraydah.html">بريدة</option>
+            <option value="yanbu" data-url="prayer-times-yanbu.html">ينبع</option>
+            <option value="khobar" data-url="prayer-times-khobar.html">الخبر</option>
+            <option value="hail" data-url="prayer-times-hail.html">حائل</option>
+            <option value="abha" data-url="prayer-times-abha.html">أبها</option>
+            <option value="al-kharj" data-url="prayer-times-kharj.html">الخرج</option>
+            <option value="jazan" data-url="prayer-times-jazan.html">جازان</option>
+            <option value="hafr_al_batin" data-url="prayer-times-hafar-al-batin.html">حفر الباطن</option>
+            <option value="oonayzah" data-url="prayer-times-unaizah.html">عنيزة</option>
+            <option value="jubail" data-url="prayer-times-jubail.html">الجبيل</option>
+            <option value="khamis" data-url="prayer-times-khamis-mushayt.html">خميس مشيط</option>
+            <option value="afeef" data-url="prayer-times-afeef.html">عفيف</option>
+            <option value="najran" data-url="prayer-times-najran.html">نجران</option>
+            <option value="al-qurayyat" data-url="prayer-times-al-qurayyat.html">القريات</option>
+            <option value="alzulf" data-url="prayer-times-uzlu.html">الزلفي</option>
+            <option value="qatif" data-url="prayer-times-qatif.html">القطيف</option>
+            <option value="al-ula" data-url="prayer-times-al-ula.html">العلا</option>
+            <option value="al-dawadmi" data-url="prayer-times-al-dawadimi.html">الدوادمي</option>
+            <option value="muhayil" data-url="prayer-times-muhayil.html">محايل</option>
+            <option value="sharurah" data-url="prayer-times-sharurah.html">شرورة</option>
+            <option value="debab" data-url="prayer-times-duba.html">ضباء</option>
+            <option value="tabarjal" data-url="prayer-times-tabarjal.html">طبرجل</option>
+            <option value="rafha" data-url="prayer-times-rafaah.html">رفحاء</option>
+            <option value="bisha" data-url="prayer-times-bisha.html">بيشة</option>
+            <option value="duma" data-url="prayer-times-dumat-al-jandal.html">دومة الجندل</option>
+            <option value="dhahran" data-url="prayer-times-dhahran.html">الظهران</option>			
+	<option value="abyar_ali" data-url="prayer-times-abyar-ali.html">أبيار علي</option>
+    <option value="alaflaj" data-url="prayer-times-alaflaj.html">الأفلاج</option>
+    <option value="alhasa" data-url="prayer-times-alhasa.html">الإحساء</option>
+    <option value="alqaysumah" data-url="prayer-times-alqaysumah.html">القيصومة</option>
+    <option value="layth" data-url="prayer-times-layth.html">الليث</option>
+    <option value="al-hofuf" data-url="prayer-times-al-hofuf.html">الهفوف</option>
+    <option value="al-mubarraz" data-url="prayer-times-al-mubarraz.html">المبرز</option>
+    <option value="sakaka" data-url="prayer-times-sakaka.html">سكاكا</option>
+    <option value="al-bahah" data-url="prayer-times-al-bahah.html">الباحة</option>
+    <option value="sihaat" data-url="prayer-times-sihaat.html">سيهات</option>
+    <option value="al-madhnab" data-url="prayer-times-al-madhnab.html">المذنب</option>
+    <option value="khafji" data-url="prayer-times-khafji.html">الخفجي</option>
+    <option value="abu_hadriyah" data-url="prayer-times-abu-hadriyah.html">أبو حدرية</option>
+    <option value="abu_arish" data-url="prayer-times-abu-arish.html">أبو عريش</option>
+    <option value="ayyuj" data-url="prayer-times-ayyuj.html">أعيوج</option>
+    <option value="um-rujum" data-url="prayer-times-um-rujum.html">أم رجوم</option>
+    <option value="um-ramah" data-url="prayer-times-um-ramah.html">أم رضمة</option>
+    <option value="um-zarb" data-url="prayer-times-um-zarb.html">أم زرب</option>
+    <option value="um-ashr" data-url="prayer-times-um-ashr.html">أم عشر</option>
+    <option value="um-ghour" data-url="prayer-times-um-ghour.html">أم غور</option>
+    <option value="ibdah" data-url="prayer-times-ibdah.html">إبضة</option>
+    <option value="ithrah" data-url="prayer-times-ithrah.html">إثرة</option>
+    <option value="aba_al-subban" data-url="prayer-times-aba-al-subban.html">اباء الصبان</option>
+    <option value="ibn_sharar" data-url="prayer-times-ibn-sharar.html">ابن شرار</option>
+    <option value="ibn_sharim" data-url="prayer-times-ibn-sharim.html">ابن شريم</option>
+    <option value="ibn_ayesh" data-url="prayer-times-ibn-ayesh.html">ابن عائش</option>
+    <option value="abu_dabaa" data-url="prayer-times-abu-dabaa.html">ابوضباع</option>
+    <option value="abyar_al_mashi" data-url="prayer-times-abyar-al-mashi.html">ابيار الماشي</option>
+    <option value="al_ajfar" data-url="prayer-times-al-ajfar.html">الأجفر</option>
+    <option value="al_ahmar" data-url="prayer-times-al-ahmar.html">الأحمر</option>
+    <option value="al_artawi" data-url="prayer-times-al-artawi.html">الأرطاوي</option>
+    <option value="al_artawiyah" data-url="prayer-times-al-artawiyah.html">الأرطاوية</option>
+    <option value="al_asamir" data-url="prayer-times-al-asamir.html">الأسامر</option>
+    <option value="al_amlah" data-url="prayer-times-al-amlah.html">الأملح</option>
+    <option value="al_ithnain" data-url="prayer-times-al-ithnain.html">الاثنين</option>
+    <option value="al_akhal" data-url="prayer-times-al-akhal.html">الاكحل</option>
+    <option value="al_rass_al_qassim" data-url="prayer-times-al-rass-al-qassim.html">الرس القصيم</option>
+        </select>
+    </div>
+</section>
+
+    </div>
+	
+	<footer class="text-center my-4">
+        <p>&copy; 2024 موقع مواقيت الصلاة. جميع الحقوق محفوظة.</p>
+        <a href="./">الرئيسية</a> | 
+        <a href="./blog.html">المدونة</a> | 
+        <a href="./privacy-policy.html">الخصوصية</a> | 
+        <a href="./terms-of-use.html">الاستخدام</a>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	  
+	  <!-- CDN عرض التاريخ اليوم -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+  
+	
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sourceSelect = document.getElementById('source');
+            const dailyTab = document.getElementById('daily-tab');
+            const monthlyTab = document.getElementById('monthly-tab');
+            const citySelect = document.getElementById('city-select');
+            const apiUrlBase = 'https://api.aladhan.com/v1/timingsByCity?city=Ithrah&country=SA&method=';
+
+            function updatePrayerTimes() {
+                const method = sourceSelect.value;
+                const url = apiUrlBase + method;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.code === 200) {
+                            const timings = data.data.timings;
+
+                            document.getElementById('fajr').textContent = formatTime(timings.Fajr);
+                            document.getElementById('dhuhr').textContent = formatTime(timings.Dhuhr);
+                            document.getElementById('asr').textContent = formatTime(timings.Asr);
+                            document.getElementById('maghrib').textContent = formatTime(timings.Maghrib);
+                            document.getElementById('isha').textContent = formatTime(timings.Isha);
+                        } else {
+                            console.error('Error fetching prayer times:', data.status);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching prayer times:', error);
+                    });
+            }
+
+            function loadMonthlyTimings() {
+                const method = sourceSelect.value;
+                const url = `https://api.aladhan.com/v1/calendarByCity?city=Ithrah&country=SA&method=${method}&year=${new Date().getFullYear()}&month=${new Date().getMonth() + 1}`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.code === 200) {
+                            const timings = data.data;
+                            const tbody = document.getElementById('monthly-timings');
+                            tbody.innerHTML = ''; // Clear previous data
+
+                            timings.forEach(day => {
+                                const tr = document.createElement('tr');
+                                tr.innerHTML = `
+                                    <td>${day.date.gregorian.date}</td>
+                                    <td>${formatTime(day.timings.Fajr)}</td>
+                                    <td>${formatTime(day.timings.Dhuhr)}</td>
+                                    <td>${formatTime(day.timings.Asr)}</td>
+                                    <td>${formatTime(day.timings.Maghrib)}</td>
+                                    <td>${formatTime(day.timings.Isha)}</td>
+                                `;
+                                tbody.appendChild(tr);
+                            });
+                        } else {
+                            console.error('Error fetching monthly prayer times:', data.status);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching monthly prayer times:', error);
+                    });
+            }
+
+            function formatTime(time) {
+                if (!time) return '';
+                const [hours, minutes] = time.split(':');
+                const hour = parseInt(hours, 10);
+                const ampm = hour >= 12 ? 'م' : 'ص';
+                const formattedHour = hour % 12 || 12;
+                return `${formattedHour}:${minutes} ${ampm}`;
+            }
+
+            sourceSelect.addEventListener('change', updatePrayerTimes);
+
+            dailyTab.addEventListener('click', function() {
+                updatePrayerTimes();
+            });
+
+            monthlyTab.addEventListener('click', function() {
+                loadMonthlyTimings();
+            });
+
+            citySelect.addEventListener('change', function() {
+                const selectedOption = citySelect.options[citySelect.selectedIndex];
+                const url = selectedOption.getAttribute('data-url');
+                if (url) {
+                    window.location.href = url;
+                }
+            });
+
+            // تحديث أوقات الصلاة عند تحميل الصفحة
+            updatePrayerTimes();
+        });
+		
+    </script>
+
+	<!-- سكريبت عرض التاريخ اليوم -->
+	    <script>
+        // دالة لتحويل التاريخ الميلادي إلى هجري
+        function gregorianToHijri(gregorianDate) {
+            const hijriMonths = [
+                "محرم", "صفر", "ربيع الأول", "ربيع الآخر", 
+                "جمادى الأولى", "جمادى الآخرة", "رجب", "شعبان", 
+                "رمضان", "شوال", "ذو القعدة", "ذو الحجة"
+            ];
+
+            const hijriDate = new Intl.DateTimeFormat('ar-TN-u-ca-islamic', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            }).format(gregorianDate);
+
+            return hijriDate;
+        }
+
+        // الحصول على التاريخ الحالي
+        const today = new Date();
+
+        // تحويل التاريخ الميلادي إلى هجري
+        const hijriDate = gregorianToHijri(today);
+
+        // عرض التاريخ الهجري على الصفحة
+        document.getElementById('hijri-date').textContent = hijriDate;
+    </script>
+	<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const gregorianDateElement = document.getElementById('gregorian-date');
+    const hijriDateElement = document.getElementById('hijri-date');
+
+    function getArabicDate() {
+        const days = [
+            'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'
+        ];
+        const months = [
+            'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 
+            'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
+        ];
+
+        const hijriMonths = [
+            'محرم', 'صفر', 'ربيع الأول', 'ربيع الآخر', 'جمادى الأولى', 'جمادى الآخرة', 
+            'رجب', 'شعبان', 'رمضان', 'شوال', 'ذو القعدة', 'ذو الحجة'
+        ];
+
+        const now = moment();
+
+        // التاريخ الميلادي
+        const dayOfWeek = days[now.day()];
+        const dayOfMonth = now.date();
+        const monthOfYear = months[now.month()];
+        const year = now.year();
+        const gregorianDate = `${dayOfWeek}، ${dayOfMonth} ${monthOfYear} ${year}`;
+
+
+        gregorianDateElement.textContent = `${gregorianDate}`;
+    }
+
+    getArabicDate();
+});
+
+	</script>
+
+	
+</body>
+</html>
