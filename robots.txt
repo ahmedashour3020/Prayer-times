@@ -1,0 +1,38 @@
+# robots.txt file for prayertimessaudi.com
+# Description: تحسين فهرسة الموقع في محركات البحث مع حظر الأصول غير الضرورية.
+
+# السماح لجميع محركات البحث بالوصول إلى الموقع
+User-agent: *
+
+# حظر الوصول إلى ملفات الأيقونات، الملفات الخارجية، وأي ملفات أخرى غير ضرورية
+Disallow: https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
+Disallow: /site.webmanifest
+Disallow: /private/
+Disallow: /test/
+Disallow: /tmp/
+Disallow: /scripts/
+Disallow: /styles/
+
+# حظر الوصول إلى ملفات النظام والملفات غير الضرورية
+Disallow: /README.md
+Disallow: /LICENSE
+Disallow: /CONTRIBUTING.md
+Disallow: /docs/
+Disallow: /tests/
+
+# حظر الوصول إلى ملفات الأصول التي لا تفيد في السيو
+Disallow: /assets/
+Disallow: /images/
+Disallow: /css/
+Disallow: /js/
+
+# السماح بمحركات البحث بالوصول إلى الصفحات الأساسية فقط
+Allow: /index.html
+Allow: /blog.html
+Allow: /privacy-policy.html
+Allow: /terms-of-use.html
+
+# الإشارة إلى ملف Sitemap لتحسين الفهرسة
+Sitemap: https://prayertimessaudi.com/cities.xml
+Sitemap: https://prayertimessaudi.com/sitemap.xml
+Sitemap: https://prayertimessaudi.com/articles.xml
